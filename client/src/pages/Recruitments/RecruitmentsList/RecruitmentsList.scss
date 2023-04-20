@@ -1,0 +1,20 @@
+.recruitments-list {
+  text-align: justify;
+  .item-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .position {
+    line-height: 2.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #444444;
+    font-size: 1.8rem;
+  }
+  .requirement {
+    font-weight: 500;
+    color: #6a6a6a;
+    font-size: 1.8rem;
+  }
+}

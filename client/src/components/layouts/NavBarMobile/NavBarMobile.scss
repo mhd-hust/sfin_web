@@ -1,0 +1,41 @@
+.ant-drawer-header-title {
+  display: flex;
+  flex-direction: row-reverse;
+  .ant-drawer-close {
+    font-size: 2.4rem !important;
+  }
+}
+
+.sfin-logo {
+  width: 12rem;
+  cursor: pointer;
+}
+
+.nav-bar-link {
+  font-weight: 400 !important;
+  line-height: 3.4rem;
+  color: #4b4b4b;
+  padding-top: 3.4rem;
+  padding-bottom: 3.4rem;
+}
+
+.ant-menu-item,
+.ant-menu-submenu-title {
+  padding-top: 3.4rem;
+  padding-bottom: 3.4rem;
+}
+
+.ant-menu-item-selected {
+  background: #077d4d !important;
+  .actived {
+    color: #fff !important;
+  }
+}
+
+.ant-menu-item-selected {
+  color: #fff !important;
+}
+
+.ant-menu-title-content {
+  font-size: 2.8rem !important;
+}

@@ -1,0 +1,73 @@
+header {
+  padding: 1.5rem 0;
+  position: fixed;
+  width: 100vw;
+  z-index: 99;
+  background: #fff;
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .sfin-logo {
+      width: 12rem;
+      cursor: pointer;
+    }
+    .menu-respon {
+      // display: none;
+      // background: #077d4d !important;
+      &:hover {
+        background: #016c42 !important;
+        color: #fff !important;
+      }
+      color: #016c42 !important;
+      border-color: #016c42 !important;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      .link {
+        font-weight: 500;
+        font-size: 2rem;
+        text-transform: uppercase;
+        padding: 1.5rem;
+        line-height: 5rem;
+      }
+      .actived {
+        color: #057d4d;
+      }
+
+      .lang-wrapper {
+        margin-left: 6rem;
+        .lang {
+          display: flex;
+          align-items: center;
+
+          .drop-icon {
+            margin-left: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+  img {
+    margin-right: 1.2rem;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+.nation-icon {
+  width: 4rem;
+}
+
+.scrolled {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 0.7rem 2.9rem 0px;
+  transition: box-shadow 0.5s ease;
+  transition: background 0.5s ease;
+}

@@ -1,0 +1,78 @@
+.intro-head {
+  text-align: justify;
+  .title-wrap {
+    background-color: #016d42;
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    border: none !important;
+    outline: none;
+    margin-bottom: 2rem;
+    h6 {
+      font-weight: 600;
+      font-size: 3rem;
+      line-height: 3.6rem;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .bg-grey {
+      background-color: #797979;
+      padding: 0.7rem 0 0.7rem 0.7rem;
+      margin: -0.7rem 0.7rem -0.7rem -0.7rem;
+    }
+  }
+  .col-l {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.6rem;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+    .text {
+      padding: 3.6rem 5rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      p {
+        font-weight: 400;
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        color: #040404;
+      }
+    }
+  }
+
+  .col-r {
+    background-image: url('../../../assets/images/Introduction/intro-header-bg.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 68%;
+    .slogan {
+      font-weight: 600;
+      font-size: 3.6rem;
+      line-height: 4.3rem;
+      text-transform: uppercase;
+      color: #454545;
+    }
+    .mission {
+    }
+
+    .item {
+      .item-title {
+        font-weight: 500;
+        font-size: 3rem;
+        line-height: 3.6rem;
+        color: #3c3c3c;
+      }
+    }
+    ul {
+      padding-left: 3rem;
+      margin: 0.8rem 0;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 2.9rem;
+      color: #444444;
+    }
+  }
+}

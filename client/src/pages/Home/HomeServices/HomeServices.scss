@@ -1,0 +1,26 @@
+.home-services {
+  .ant-card-hoverable:hover {
+    .ant-card-meta-title {
+      color: #057d4d;
+    }
+  }
+  .ant-card-cover {
+    padding: 2rem;
+    overflow: hidden;
+    .card-img {
+      width: 100%;
+    }
+  }
+  .ant-card-meta-title {
+    font-weight: 500;
+    font-size: 2.6rem;
+    white-space: normal;
+  }
+
+  .ant-card-meta-description {
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: justify;
+    color: #6a6a6a;
+  }
+}
