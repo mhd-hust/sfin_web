@@ -6,7 +6,7 @@ import InstallBtn from '../../components/Buttons/InstallBtn';
 import HomeServices from './HomeServices';
 import HomeProducts from './HomeProducts';
 import HomeProjects from './HomeProjects';
-import HomeRecruitments from './HomeRecruitments';
+import HomeRecruitment from './HomeRecruitment';
 import HomePartners from './HomePartners';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
       <HomeServices />
       <HomeProducts />
       <HomeProjects />
-      <HomeRecruitments />
+      <HomeRecruitment />
       <HomePartners />
     </main>
   );

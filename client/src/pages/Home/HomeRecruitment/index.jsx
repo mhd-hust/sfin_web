@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
-import './HomeRecruitments.scss';
-import Accountant from '../../../assets/images/Recruitments/Accountant.png';
-import BA from '../../../assets/images/Recruitments/BA.png';
-import Dev from '../../../assets/images/Recruitments/Dev.png';
-import InternWeb from '../../../assets/images/Recruitments/Intern-web.png';
-import SEO from '../../../assets/images/Recruitments/SEO.png';
-import Tester from '../../../assets/images/Recruitments/Tester.png';
+import './HomeRecruitment.scss';
+import Accountant from '../../../assets/images/Recruitment/Accountant.png';
+import BA from '../../../assets/images/Recruitment/BA.png';
+import Dev from '../../../assets/images/Recruitment/Dev.png';
+import InternWeb from '../../../assets/images/Recruitment/Intern-web.png';
+import SEO from '../../../assets/images/Recruitment/SEO.png';
+import Tester from '../../../assets/images/Recruitment/Tester.png';
 import MoreBtn from '../../../components/Buttons/MoreBtn';
 import { Col, Row } from 'antd';
 import Slider from 'react-slick';
@@ -56,7 +56,7 @@ const items = [
   },
 ];
 
-const HomeRecruitments = () => {
+const HomeRecruitment = () => {
   const slider = useRef(null);
   const settings = {
     className: 'slider',
@@ -78,7 +78,7 @@ const HomeRecruitments = () => {
   };
 
   return (
-    <div className='home-recruitments'>
+    <div className='home-recruitment'>
       <div className='general-title'>tuyển dụng</div>
       <div className='lists'>
         <Row
@@ -116,4 +116,4 @@ const HomeRecruitments = () => {
   );
 };
 
-export default HomeRecruitments;
+export default HomeRecruitment;

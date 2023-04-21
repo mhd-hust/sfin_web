@@ -19,6 +19,8 @@ import {
 } from '@ant-design/icons';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './NavBarMobile.scss';
+import { useTranslation } from 'react-i18next';
+
 // import { Input } from 'antd';
 // const { Search } = Input;
 // const suffix = (
@@ -39,118 +41,10 @@ function getItem(label, key, icon, children) {
   };
 }
 
-const items = [
-  getItem(
-    <NavLink
-      to='/'
-      className={({ isActive }) => `nav-bar-link ${isActive ? 'actived' : ''}`}
-      onClick={scrollToTop}
-      style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
-      Trang chủ
-    </NavLink>,
-    '1',
-    <HomeOutlined />
-  ),
-  getItem(
-    <NavLink
-      to='/introduction'
-      className={({ isActive }) => `nav-bar-link ${isActive ? 'actived' : ''}`}
-      onClick={scrollToTop}
-      style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
-      giới thiệu
-    </NavLink>,
-    '2',
-    <InfoCircleOutlined />
-  ),
-  getItem(
-    <NavLink
-      to='/services'
-      className={({ isActive }) => `nav-bar-link ${isActive ? 'actived' : ''}`}
-      onClick={scrollToTop}
-      style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
-      dịch vụ
-    </NavLink>,
-    '3',
-    <UserOutlined />
-  ),
-  getItem(
-    <NavLink
-      to='/products'
-      className={({ isActive }) => `nav-bar-link ${isActive ? 'actived' : ''}`}
-      onClick={scrollToTop}
-      style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
-      sản phẩm
-    </NavLink>,
-    '4',
-    <HomeOutlined />
-  ),
-  getItem(
-    <NavLink
-      to='/projects'
-      className={({ isActive }) => `nav-bar-link ${isActive ? 'actived' : ''}`}
-      onClick={scrollToTop}
-      style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
-      dự án
-    </NavLink>,
-    '5',
-    <HomeOutlined />
-  ),
-  getItem(
-    <NavLink
-      to='/recruitments'
-      className={({ isActive }) => `nav-bar-link ${isActive ? 'actived' : ''}`}
-      onClick={scrollToTop}
-      style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
-      tuyển dụng
-    </NavLink>,
-    '6',
-    <SearchOutlined />
-  ),
-  // getItem(
-  //   <div
-  //     className='nav-bar-link lang'
-  //     style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
-  //     {/* <img src={viFlag} alt='' className='flag-icon' />
-  //     <img src={dropdownIcon} className='drop-icon' alt=''></img> */}
-  //     ngôn ngữ
-  //   </div>,
-  //   '7',
-  //   <GlobalOutlined />,
-  //   [
-  //     getItem(
-  //       'Vietnamese',
-  //       '5',
-  //       <img
-  //         src={viFlag}
-  //         alt=''
-  //         className='nation-icon'
-  //         style={{
-  //           width: '4.6rem',
-  //           border: '0.2rem solid #fff',
-  //           borderRadius: '0.2rem',
-  //         }}
-  //       />
-  //     ),
-  //     getItem(
-  //       'English',
-  //       '6',
-  //       <img
-  //         src={usFlag}
-  //         alt=''
-  //         className='nation-icon'
-  //         style={{
-  //           width: '4.6rem',
-  //           border: '0.2rem solid #fff',
-  //           borderRadius: '0.2rem',
-  //         }}
-  //       />
-  //     ),
-  //   ]
-  // ),
-];
-
 const NavBarMobile = () => {
   const [open, setOpen] = useState(false);
+  const [currentLang, changeCurrentLang] = useState('vi');
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -159,12 +53,143 @@ const NavBarMobile = () => {
   };
 
   const navigate = useNavigate();
+  const { t } = useTranslation('header');
+  const { i18n } = useTranslation();
 
   const navigateHome = () => {
     scrollToTop();
     onClose();
     navigate('/');
   };
+
+  const handleChangeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('lang', i18n.language);
+    changeCurrentLang(i18n.language);
+  };
+
+  const items = [
+    getItem(
+      <NavLink
+        to='/'
+        className={({ isActive }) =>
+          `nav-bar-link ${isActive ? 'actived' : ''}`
+        }
+        onClick={scrollToTop}
+        style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
+        {t('home')}
+      </NavLink>,
+      '1',
+      <HomeOutlined />
+    ),
+    getItem(
+      <NavLink
+        to='/introduction'
+        className={({ isActive }) =>
+          `nav-bar-link ${isActive ? 'actived' : ''}`
+        }
+        onClick={scrollToTop}
+        style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
+        {t('introduction')}
+      </NavLink>,
+      '2',
+      <InfoCircleOutlined />
+    ),
+    getItem(
+      <NavLink
+        to='/services'
+        className={({ isActive }) =>
+          `nav-bar-link ${isActive ? 'actived' : ''}`
+        }
+        onClick={scrollToTop}
+        style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
+        {t('services')}
+      </NavLink>,
+      '3',
+      <UserOutlined />
+    ),
+    getItem(
+      <NavLink
+        to='/products'
+        className={({ isActive }) =>
+          `nav-bar-link ${isActive ? 'actived' : ''}`
+        }
+        onClick={scrollToTop}
+        style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
+        {t('products')}
+      </NavLink>,
+      '4',
+      <HomeOutlined />
+    ),
+    getItem(
+      <NavLink
+        to='/projects'
+        className={({ isActive }) =>
+          `nav-bar-link ${isActive ? 'actived' : ''}`
+        }
+        onClick={scrollToTop}
+        style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
+        {t('projects')}
+      </NavLink>,
+      '5',
+      <HomeOutlined />
+    ),
+    getItem(
+      <NavLink
+        to='/recruitment'
+        className={({ isActive }) =>
+          `nav-bar-link ${isActive ? 'actived' : ''}`
+        }
+        onClick={scrollToTop}
+        style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
+        {t('recruitment')}
+      </NavLink>,
+      '6',
+      <SearchOutlined />
+    ),
+    getItem(
+      <div
+        className='nav-bar-link lang'
+        style={{ fontWeight: 400, fontSize: '3rem', paddingLeft: '1.6rem' }}>
+        {/* <img src={viFlag} alt='' className='flag-icon' />
+        <img src={dropdownIcon} className='drop-icon' alt=''></img> */}
+        {t('languages')}
+      </div>,
+      '7',
+      <GlobalOutlined />,
+      [
+        getItem(
+          <p onClick={() => handleChangeLanguage('vi')}>Vietnamese</p>,
+          '8',
+          <img
+            src={viFlag}
+            alt=''
+            className='nation-icon'
+            style={{
+              width: '4.6rem',
+              border: '0.2rem solid #fff',
+              borderRadius: '0.2rem',
+            }}
+          />
+        ),
+        getItem(
+          <p onClick={() => handleChangeLanguage('en')}>English</p>,
+          '9',
+          <img
+            src={usFlag}
+            alt=''
+            className='nation-icon'
+            style={{
+              width: '4.6rem',
+              border: '0.2rem solid #fff',
+              borderRadius: '0.2rem',
+            }}
+          />
+        ),
+      ]
+    ),
+  ];
+
   return (
     <aside className='nav-bar'>
       <Button

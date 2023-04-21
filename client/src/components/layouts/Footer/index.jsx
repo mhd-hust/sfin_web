@@ -9,21 +9,7 @@ import tiktokIcon from '../../../assets/icons/tiktokIcon.svg';
 import youtubeIcon from '../../../assets/icons/youtubeIcon.svg';
 import linkedinIcon from '../../../assets/icons/linkedinIcon.svg';
 import bocongthuong from '../../../assets/images/bocongthuong.png';
-
-const contact = [
-  {
-    alt: 'address icon',
-    icon: addressIcon,
-    text: (
-      <>
-        <span>Số 89b Đường Đền Lừ, Phường Hoàng Văn Thụ</span>
-        <span>Quận Hoàng Mai, Thành Phố Hà Nội</span>
-      </>
-    ),
-  },
-  { alt: 'phone icon', icon: phoneIcon, text: '+84-969877888' },
-  { alt: 'mail icon', icon: mailIcon, text: 'letaidai@sfin.vn' },
-];
+import { useTranslation } from 'react-i18next';
 
 const socialNetwork = [
   {
@@ -49,13 +35,30 @@ const socialNetwork = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation('footer');
+
+  const contact = [
+    {
+      alt: 'address icon',
+      icon: addressIcon,
+      text: (
+        <>
+          <span>{t('address')}</span>
+          <span>{t('city')}</span>
+        </>
+      ),
+    },
+    { alt: 'phone icon', icon: phoneIcon, text: '+84-969877888' },
+    { alt: 'mail icon', icon: mailIcon, text: 'letaidai@sfin.vn' },
+  ];
+
   return (
     <footer>
       <FloatButton.BackTop tooltip={<div>Back top</div>} />
       <div className='main-container'>
         <div className='footer-l'>
           <div className='footer-title'>
-            <h1>cÔNG TY CỔ PHẦN CÔNG NGHỆ THÔNG MINH SFIN</h1>
+            <h1>{t('company')}</h1>
           </div>
           <div className='footer-info'>
             {contact.map((contact, index) => (
@@ -71,7 +74,7 @@ const Footer = () => {
             <img src={bocongthuong} alt='' />
           </div>
           <div className='social-networks'>
-            <p>Kết nối với chúng tôi</p>
+            <p>{t('social network')}</p>
             <div className='social-networks-icon'>
               {socialNetwork.map((socialNetwork, index) => (
                 <a

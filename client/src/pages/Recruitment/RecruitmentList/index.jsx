@@ -1,11 +1,11 @@
 import React from 'react';
-import './RecruitmentsList.scss';
-import Accountant from '../../../assets/images/Recruitments/Accountant.png';
-import BA from '../../../assets/images/Recruitments/BA.png';
-import Dev from '../../../assets/images/Recruitments/Dev.png';
-import InternWeb from '../../../assets/images/Recruitments/Intern-web.png';
-import SEO from '../../../assets/images/Recruitments/SEO.png';
-import Tester from '../../../assets/images/Recruitments/Tester.png';
+import './RecruitmentList.scss';
+import Accountant from '../../../assets/images/Recruitment/Accountant.png';
+import BA from '../../../assets/images/Recruitment/BA.png';
+import Dev from '../../../assets/images/Recruitment/Dev.png';
+import InternWeb from '../../../assets/images/Recruitment/Intern-web.png';
+import SEO from '../../../assets/images/Recruitment/SEO.png';
+import Tester from '../../../assets/images/Recruitment/Tester.png';
 import MoreBtn from '../../../components/Buttons/MoreBtn';
 import { Col, Row } from 'antd';
 
@@ -54,9 +54,9 @@ const items = [
   },
 ];
 
-const RecruitmentsList = () => {
+const RecruitmentList = () => {
   return (
-    <div className='recruitments-list'>
+    <div className='recruitment-list'>
       <Row gutter={[64, 64]} style={{ display: 'flex', alignItems: 'center' }}>
         {items.map((item, index) => (
           <Col xs={24} sm={24} md={12} key={index}>
@@ -83,4 +83,4 @@ const RecruitmentsList = () => {
   );
 };
 
-export default RecruitmentsList;
+export default RecruitmentList;

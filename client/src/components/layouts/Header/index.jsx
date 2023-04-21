@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Dropdown } from 'antd';
@@ -9,35 +9,10 @@ import dropdownIcon from '../../../assets/icons/dropdown.png';
 import { scrolled, scrollToTop } from '../../../utils/handleScroll';
 import NavBarMobile from '../NavBarMobile';
 import useViewport from '../../../hooks/useViewPorts';
-
-const items = [
-  {
-    key: 'vi',
-    label: (
-      <div className='dropdown-item'>
-        <div>
-          <img src={viFlag} alt='' className='nation-icon' />
-        </div>
-        <p>Vietnamese</p>
-      </div>
-    ),
-    // onClick: () => handleChangeLanguage('en'),
-  },
-  {
-    key: 'en',
-    label: (
-      <div className='dropdown-item'>
-        <div>
-          <img src={usFlag} alt='' className='nation-icon' />
-        </div>
-        <p>English</p>
-      </div>
-    ),
-    // onClick: () => handleChangeLanguage('vi'),
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const [currentLang, changeCurrentLang] = useState('vi');
   const navigate = useNavigate();
   const scroll = scrolled();
 
@@ -48,6 +23,42 @@ const Header = () => {
 
   const viewPort = useViewport();
   const isMobile = viewPort.width <= 768;
+
+  const { t } = useTranslation('header');
+  const { i18n } = useTranslation();
+
+  const handleChangeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('lang', i18n.language);
+    changeCurrentLang(i18n.language);
+  };
+
+  const items = [
+    {
+      key: 'vi',
+      label: (
+        <div className='dropdown-item'>
+          <div>
+            <img src={viFlag} alt='' className='nation-icon' />
+          </div>
+          <p>Vietnamese</p>
+        </div>
+      ),
+      onClick: () => handleChangeLanguage('vi'),
+    },
+    {
+      key: 'en',
+      label: (
+        <div className='dropdown-item'>
+          <div>
+            <img src={usFlag} alt='' className='nation-icon' />
+          </div>
+          <p>English</p>
+        </div>
+      ),
+      onClick: () => handleChangeLanguage('en'),
+    },
+  ];
 
   return (
     <header className={scroll ? 'scrolled' : ''}>
@@ -66,39 +77,39 @@ const Header = () => {
               to='/'
               className={({ isActive }) => `link ${isActive ? 'actived' : ''}`}
               onClick={scrollToTop}>
-              Trang chủ
+              {t('home')}
             </NavLink>
             <NavLink
               to='/introduction'
               className={({ isActive }) => `link ${isActive ? 'actived' : ''}`}
               onClick={scrollToTop}>
-              giới thiệu
+              {t('introduction')}
             </NavLink>
             <NavLink
               to='/services'
               className={({ isActive }) => `link ${isActive ? 'actived' : ''}`}
               onClick={scrollToTop}>
-              dịch vụ
+              {t('services')}
             </NavLink>
             <NavLink
               to='/products'
               className={({ isActive }) => `link ${isActive ? 'actived' : ''}`}
               onClick={scrollToTop}>
-              sản phẩm
+              {t('products')}
             </NavLink>
             <NavLink
               to='/projects'
               className={({ isActive }) => `link ${isActive ? 'actived' : ''}`}
               onClick={scrollToTop}>
-              dự án
+              {t('projects')}
             </NavLink>
             <NavLink
-              to='/recruitments'
+              to='/recruitment'
               className={({ isActive }) => `link ${isActive ? 'actived' : ''}`}
               onClick={scrollToTop}>
-              tuyển dụng
+              {t('recruitment')}
             </NavLink>
-            {/* <NavLink className='lang-wrapper'>
+            <NavLink className='lang-wrapper'>
               <Dropdown
                 menu={{
                   items,
@@ -106,11 +117,15 @@ const Header = () => {
                 placement='bottomRight'
                 arrow>
                 <div className='lang'>
-                  <img src={viFlag} alt='' className='nation-icon' />
+                  <img
+                    src={currentLang === 'vi' ? viFlag : usFlag}
+                    alt=''
+                    className='nation-icon'
+                  />
                   <img src={dropdownIcon} className='drop-icon' alt='' />
                 </div>
               </Dropdown>
-            </NavLink> */}
+            </NavLink>
           </nav>
         )}
       </div>

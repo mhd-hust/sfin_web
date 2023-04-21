@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import './HomeServices.scss';
 import { Card, Col, Row } from 'antd';
 const { Meta } = Card;
@@ -29,6 +29,29 @@ const cards = [
 ];
 
 const HomeServices = () => {
+  // const ref1 = useRef(null);
+  // const ref2 = useRef(null);
+  // const ref3 = useRef(null);
+
+  // const [numbers, setNumbers] = useState([]);
+
+  // const [height, setHeight] = useState(0);
+
+  // useLayoutEffect(() => {
+  //   setHeight(ref1.current.getBoundingClientRect().height);
+  // }, []);
+
+  // useEffect(() => {
+  //   function handleWindowResize() {
+  //     setHeight(ref1.current.getBoundingClientRect().height);
+  //   }
+
+  //   window.addEventListener('resize', handleWindowResize);
+  //   return () => {
+  //     window.removeEventListener('resize', handleWindowResize);
+  //   };
+  // }, []);
+
   return (
     <div className='home-services'>
       <div className='general-title'>dịch vụ</div>
@@ -39,7 +62,10 @@ const HomeServices = () => {
               style={{ height: '100%' }}
               hoverable
               cover={<img alt='example' src={card.img} className='card-img' />}>
-              <Meta title={card.title} description={card.description} />
+              <Meta
+                title={<div className='card-title'>{card.title}</div>}
+                description={card.description}
+              />
             </Card>
           </Col>
         ))}

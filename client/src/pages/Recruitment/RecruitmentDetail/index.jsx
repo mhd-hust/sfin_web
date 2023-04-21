@@ -1,5 +1,5 @@
 import React from 'react';
-import './RecruitmentsDetail.scss';
+import './RecruitmentDetail.scss';
 
 const jobs = [
   {
@@ -153,9 +153,9 @@ const jobs = [
   },
 ];
 
-const RecruitmentsDetail = () => {
+const RecruitmentDetail = () => {
   return (
-    <div className='recruitments-detail'>
+    <div className='recruitment-detail'>
       <h1>nhân viên kinh doanh</h1>
       <h2>Số lượng: 03</h2>
       <h3 className='text-green'>1. Yêu cầu công việc</h3>
@@ -287,4 +287,4 @@ const RecruitmentsDetail = () => {
   );
 };
 
-export default RecruitmentsDetail;
+export default RecruitmentDetail;
